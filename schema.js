@@ -7,6 +7,7 @@ export const typeDefs = gql`
     name: String
     age: Int
     email: String
+    friends: [User]
   }
 
   type Query {
@@ -19,5 +20,16 @@ export const resolvers = {
     users() {
       return userModel.list()
     }
-  }
+  },
+  User: {
+    friends(source) {
+      if (!source.friends || !source.friends.length) {
+        return
+      }
+
+      return Promise.all(
+        source.friends.map(({ id }) => userModel.find(id))
+      )
+    }
+  },
 }
