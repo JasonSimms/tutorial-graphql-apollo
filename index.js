@@ -18,4 +18,4 @@ app.get('/', function(req,res){
     res.send({hello: `there!`})
 })
 
-app.listen(PORT, () => `Listening at http://localhost:${PORT}`)
+app.listen(PORT, () => `Listening at http://localhost:${PORT}/graphql`)

@@ -8,7 +8,7 @@ class User {
   }
 
   list() {
-    return this.api.get('/users').then(res => console.log(res.data))
+    return this.api.get('/users').then(res => res.data)
   }
 }
 
